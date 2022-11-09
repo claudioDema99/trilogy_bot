@@ -4,17 +4,19 @@ import logging
 import hashlib
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineQuery, InputTextMessageContent, InlineQueryResultArticle
-
+import os
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton  # for reply keyboard (sends message)
+from dotenv import load_dotenv
+load_dotenv()
 
-
-API_TOKEN = 'TOKEN'
+TOKEN = os.getenv('TOKEN')
+print(TOKEN)
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 
 # Initialize bot and dispatcher
-bot = Bot(token=API_TOKEN)
+bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
 # %%
 
@@ -30,8 +32,8 @@ msg = {'info generali' : "Lunedì 31 Ottobre\nOrario: dalle 10.30 alle 4.30\n\nP
 btns = [KeyboardButton(btn) for btn in msg.keys()]
 
 
-tastiera_custom = ReplyKeyboardMarkup(resize_keyboard=True, one_time_keyboard=True)
-tastiera_custom.add(btns[0]).add(btns[1]).add(btns[2])
+tastiera_custom = ReplyKeyboardMarkup(resize_keyboard=True)
+tastiera_custom.add(*btns)
 
 
 ## this function is called when the user send /start or /help
