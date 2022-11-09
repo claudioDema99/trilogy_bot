@@ -8,7 +8,7 @@ from aiogram.types import InlineQuery, InputTextMessageContent, InlineQueryResul
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton  # for reply keyboard (sends message)
 
 
-API_TOKEN = 'col cazzo che ti do il token'
+API_TOKEN = 'TOKEN'
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -18,9 +18,13 @@ bot = Bot(token=API_TOKEN)
 dp = Dispatcher(bot)
 # %%
 
-msg = {'uno' : 'questa cosa la scrivo perchè hai cliccato uno ',
-             'due' : 'questa cosa la scrivo perchè hai cliccato due ',
-             'tre' : 'questa cosa la scrivo perchè hai cliccato tre ',}
+msg = {'info generali' : "Lunedì 31 Ottobre\nOrario: dalle 10.30 alle 4.30\n\nPrezzo uomo: 20€\nPrezzo donna: 15€\n\nL'ingresso é consentito esclusivamente con iscrizione in lista, e include l'OPEN BAR dalle ore 10.30 alle ore 2.00.\n\nEcc Ecc.. porca merdaaaaaaa",
+             'location' : 'Nuova Location: NoSpace Club, Via Vergnano 65, Brescia\n\n https://maps.app.goo.gl/34daiXjMFQM5x8aB7 \n\nMolto figo e accogliente, adatto alle famiglie.',
+             'musica' : 'Programma della serata:\n\nDalle 10.30 alle 00.00: House/commerciale -> Dj Trilly\nDalle 00.00 alle 2.00: Salsa e bachata -> Dj Gonzales El Gonzo\nDalle 2.00 alle 4.30: Tecno e pasticche -> Dj SeNonTiDroghiFaiSchifo',
+             'drink open bar':"Drinks:\n\nAcqua\nAcqua Frizzante\nAqua\nAqua Con Gas",
+             'tavoli':"Tavoli disponibili:\n\nTavolo1..\n\nTavolo 2\n\nSi dai avete capito non ho sbatta ah no basta copiare e incollare\n\nBASE:\n150 (5 ingressi) —> include 1 bottiglia base + open bar per tutta la durata dell'evento\n300 (10 ingressi) —> include 2 bottiglie base + open bar per tutta la durata dell'evento\n\nPREMIUM:\n200 (5 ingressi) —> include 1 bottiglia premium (belvedere/hendrick's) + open bar per tutta la durata dell'evento\n400 (10 ingressi) —> include 2 bottiglie premium  (belvedere/hendrick's) + open bar per tutta la durata dell'evento\n\nVIP:\n250 (5 ingressi) —> include 1 bottiglia premium (belvedere/hendrick's) e 1 spumante  + open bar per tutta la durata dell'evento\n500 (10 ingressi) —> include 2 bottiglie premium  (belvedere/hendrick's) e 2 spumanti + open bar per tutta la durata dell'evento",
+             'iscrizione in lista':"Si va bene tutto, però quanto cazzo è bello Dema??!?",
+             'chi siamo':"Sisi ma io capisco tutto, però non ho piu sbatta\n\nComunque\n\nDema è proprio un toro ma minchia proprio un torotoro fessssss",}
 
 
 btns = [KeyboardButton(btn) for btn in msg.keys()]
@@ -33,7 +37,7 @@ tastiera_custom.add(btns[0]).add(btns[1]).add(btns[2])
 ## this function is called when the user send /start or /help
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    await message.reply("ciao amico scegli un numero da 1 a 3", reply_markup=tastiera_custom)
+    await message.reply("Bella raga!\nQua direi tipo qua potete trovare tutte le info che vi servono per la 'Prossima Festa Trilogy Cazzo'!\nClicca sul bottone per avere tutte le info dettagliate su:\n\nInfo Generali\nLocation \nMusica \nDrink Open Bar \nTavoli \nCome aggiungersi in lista \nChi siamo", reply_markup=tastiera_custom)
 
 
 
