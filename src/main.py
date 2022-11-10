@@ -39,7 +39,7 @@ tastiera_custom.add(*btns)
 ## this function is called when the user send /start or /help
 @dp.message_handler(commands=['start', 'help'])
 async def send_welcome(message: types.Message):
-    await message.reply("Bella raga!\nQua direi tipo qua potete trovare tutte le info che vi servono per la 'Prossima Festa Trilogy Cazzo'!\nClicca sul bottone per avere tutte le info dettagliate su:\n\nInfo Generali\nLocation \nMusica \nDrink Open Bar \nTavoli \nCome aggiungersi in lista \nChi siamo", reply_markup=tastiera_custom)
+    await message.reply("🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩🪩\n\nBella raga!\nQua direi tipo qua potete trovare tutte le info che vi servono per la 'Prossima Festa Trilogy Cazzo'!\n\nClicca sul bottone per avere tutte le info dettagliate su:\n", reply_markup=tastiera_custom)
 
 
 
